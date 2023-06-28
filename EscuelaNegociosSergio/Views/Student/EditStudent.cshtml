@@ -1,0 +1,24 @@
+﻿@using EscuelaNegociosSergio.Models
+@model Student
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h3>Edit Student</h3>​
+            <form asp-controller="Student" asp-action="EditStudent" method="post">​
+                <div class="form-group">
+                    <input asp-for="StudentId" type="hidden" />​
+                    <label asp-for="StudentName">Student Name</label>​
+                    <input asp-for="StudentName" class="form-control" />​
+                </div>
+                <br />​
+                <div class="text-center">
+                    <p>
+                        <a asp-controller="Student" asp-action="AllStudent" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-success">Update Student</button>​
+                    </p>
+                </div>
+            </form>​
+        </div>
+    </div>
+</div>

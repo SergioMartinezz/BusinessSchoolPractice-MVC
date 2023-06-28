@@ -1,0 +1,30 @@
+﻿@using EscuelaNegociosSergio.Models
+@model Department
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h3>Delete Department</h3>​
+            <h6>Are you sure you want delete this Department?</h6>
+            <form asp-controller="Department" asp-action="DeleteDepartment" method="post">​
+                <div class="form-group">
+                    <label asp-for="DepartmentId">Department ID</label>​
+                    <input asp-for="DepartmentId" class="form-control" readonly="readonly" />​
+                    <label asp-for="DepartmentName">Department Name</label>​
+                    <input asp-for="DepartmentName" class="form-control" readonly="readonly" />​
+                    <label asp-for="Phone"></label>​
+                    <input asp-for="Phone" class="form-control" readonly="readonly" />​
+                    <label asp-for="Email"></label>​
+                    <input asp-for="Email" class="form-control" readonly="readonly" />​
+                    <label asp-for="OfficeLocation">Office Location</label>​
+                    <input asp-for="OfficeLocation" class="form-control" readonly="readonly" />​
+                </div>
+                <br />​
+                <div class="text-center">
+                    <button asp-controller="Department" asp-action="AllDepartment" class="btn btn-secondary">No, go back</button> 
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>​ 
+                </div>
+            </form>​
+        </div>
+    </div>
+</div>

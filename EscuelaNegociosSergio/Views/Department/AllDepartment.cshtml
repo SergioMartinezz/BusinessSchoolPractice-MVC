@@ -1,0 +1,55 @@
+﻿@using EscuelaNegociosSergio.Models
+@model IEnumerable<Department>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <p>
+                <a asp-controller="Department" asp-action="AddDepartment" class="btn btn-dark">Add Department</a>
+            </p>
+            @{
+                if (Model.Count() < 1)
+                {
+                    <h6 class="text-danger">No departments in the database yet!</h6>
+                }
+                else
+                {
+                    <h3>All Departments</h3>
+                    <table class="table table-stripped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Location</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (var department in Model)
+                                {
+                                    <tr>
+                                        <td>@department.DepartmentId</td>
+                                        <td>@department.DepartmentName</td>
+                                        <td>@department.Phone</td>
+                                        <td>@department.Email</td>
+                                        <td>@department.OfficeLocation</td>
+                                        <td>
+                                            <a asp-action="EditDepartment" asp-route-id="@department.DepartmentId" class="btn btn-warning btn-sm">Edit</a>
+                                        </td>
+                                        <td>
+                                            <a asp-action="DeleteDepartment" asp-route-id="@department.DepartmentId" class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                }
+            }
+        </div>
+    </div>
+</div>

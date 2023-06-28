@@ -1,0 +1,32 @@
+﻿@using EscuelaNegociosSergio.Models
+@model Department
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h3>Edit Department</h3>​
+            <form asp-controller="Department" asp-action="EditDepartment" method="post">​
+                <div class="form-group">
+                    <input asp-for="DepartmentId" type="hidden" />​
+                    <label asp-for="DepartmentName">Department Name</label>​
+                    <input asp-for="DepartmentName" class="form-control" />​
+                    <br />
+                    <label asp-for="Phone"></label>​
+                    <input asp-for="Phone" class="form-control" />​
+                    <br />
+                    <label asp-for="Email"></label>​
+                    <input asp-for="Email" class="form-control" />​
+                    <br />
+                    <label asp-for="OfficeLocation">Office Location</label>​
+                    <input asp-for="OfficeLocation" class="form-control" />​
+                    <br />
+                </div>
+                <br />​
+                <div class="text-center">
+                    <a asp-controller="Department" asp-action="AllDepartment" class="btn btn-secondary">Cancel</a> 
+                    <button type="submit" class="btn btn-success">Update Department</button>​
+                </div>
+            </form>​
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@using EscuelaNegociosSergio.Models
+@model IEnumerable<Student>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>@ViewData["Club"]</h2>
+            <br />
+            @{
+                if (Model.Count() < 1)
+                {
+                    <p>No student registered on this Club yet!</p>
+                }
+                else
+                {
+                    <h3>All Inscribed Students</h3>
+                    <table class="table table-striped">
+                        <tr><th>Id</th><th>Name</th></tr>
+                        @foreach (var student in Model)
+                        {
+                            <tr>
+                                <td>@student.StudentId</td>
+                                <td>@student.StudentName</td>
+                            </tr>
+                        }
+                    </table>
+                }
+            }
+            <br />
+            <p><a asp-controller="Club" asp-action="AllClub" class="btn btn-secondary">Back to Clubs</a></p>
+        </div>
+    </div>
+</div>

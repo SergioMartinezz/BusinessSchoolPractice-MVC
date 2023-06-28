@@ -1,0 +1,29 @@
+﻿@using EscuelaNegociosSergio.Models
+@model Club
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h3>Delete Club</h3>​
+            <h6>Are you sure you want delete this Club?</h6>
+            <form asp-controller="Club" asp-action="DeleteClub" method="post">​
+                <input type="hidden" asp-for="Department.DepartmentId" />
+                <div class="form-group">
+                    <label asp-for="ClubId">Club ID</label>​
+                    <input asp-for="ClubId" class="form-control" readonly="readonly" />​
+                    <label asp-for="ClubName">Club Name</label>​
+                    <input asp-for="ClubName" class="form-control" readonly="readonly" />​
+                    <label asp-for="StudentsNumber">Number of Students</label>​
+                    <input asp-for="StudentsNumber" class="form-control" readonly="readonly" />​
+                    <label asp-for="Department.DepartmentName">Department</label>​
+                    <input asp-for="Department.DepartmentName" class="form-control" readonly="readonly" />​
+                </div>
+                <br />​
+                <div class="text-center">
+                    <button asp-controller="Club" asp-action="AllClub" class="btn btn-secondary">No, go back</button> 
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>​ 
+                </div>
+            </form>​
+        </div>
+    </div>
+</div>

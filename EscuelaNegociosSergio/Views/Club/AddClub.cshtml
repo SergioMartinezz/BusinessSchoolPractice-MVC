@@ -1,0 +1,31 @@
+﻿@using EscuelaNegociosSergio.ViewModels
+@model AddClubViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h3>Add Club</h3>
+            <form asp-controller="Club" asp-action="AddClub" method="post">
+                <div class="form-group">
+                    <label asp-for="Club.ClubName">Name</label>
+                    <input asp-for="Club.ClubName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Club.StudentsNumber">Number of Students</label>
+                    <input asp-for="Club.StudentsNumber" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Department.DepartmentName">Department</label>
+                    <select asp-for="Department.DepartmentId" asp-items="@Model.DepartmentList" class="form-control">
+                        <option></option>
+                    </select>
+                </div>
+                <br />
+                <div class="text-center">
+                    <a asp-controller="Club" asp-action="AllClub" class="btn btn-secondary">Back to Clubs</a> 
+                    <button type="submit" class="btn btn-success">Add Club</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

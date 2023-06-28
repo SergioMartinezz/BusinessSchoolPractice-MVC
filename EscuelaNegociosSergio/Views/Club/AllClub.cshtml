@@ -1,0 +1,61 @@
+﻿@using EscuelaNegociosSergio.Models
+@model IEnumerable<Club>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 offset-md-1">
+            <p>
+                <a asp-controller="Club" asp-action="AddClub" class="btn btn-dark">Add Club</a>
+            </p>
+            @{
+                if (Model.Count() < 1)
+                {
+                    <h6 class="text-danger">No clubs in the database yet!</h6>
+                }
+                else
+                {
+                    <h3>All Club</h3>
+                    <table class="table table-stripped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Students</th>
+                                <th>Department</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (var club in Model)
+                                {
+                                    <tr>
+                                        <td>@club.ClubId</td>
+                                        <td>@club.ClubName</td>
+                                        <td>@club.StudentsNumber</td>
+                                        <td><a asp-controller="Department" asp-action="DepartmentDetails" asp-route-id="@club.Department.DepartmentId">@club.Department.DepartmentName</a></td>
+                                        <td>
+                                            <a asp-controller="Student" asp-action="EnrollClub" asp-route-id="@club.ClubId" class="btn btn-outline-secondary btn-sm">Inscribe a Student</a>
+                                        </td>
+                                        <td>
+                                            <a asp-controller="Student" asp-action="AllInscribed" asp-route-id="@club.ClubId" class="btn btn-outline-secondary btn-sm">Check the Students List</a>
+                                        </td>
+                                        <td>
+                                            <a asp-action="EditClub" asp-route-id="@club.ClubId" class="btn btn-warning btn-sm">Edit</a>
+                                        </td>
+                                        <td>
+                                            <a asp-action="DeleteClub" asp-route-id="@club.ClubId" class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                }
+            }
+        </div>
+    </div>
+</div>

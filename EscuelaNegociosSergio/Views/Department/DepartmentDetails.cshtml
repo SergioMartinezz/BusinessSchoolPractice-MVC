@@ -1,0 +1,66 @@
+﻿@using EscuelaNegociosSergio.Models
+@model Department
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h3>@Model.DepartmentName</h3>
+            <table class="table table-stripped">
+                <tr>
+                    <th>Department ID</th>
+                    <td>@Model.DepartmentId</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td>@Model.Phone</td>
+                </tr>
+                <tr>
+                    <th>Office</th>
+                    <td>@Model.OfficeLocation</td>
+                </tr>
+
+            </table>
+            <a asp-controller="Club" asp-action="AllClub" class="btn btn-secondary">Back to Clubs</a>
+        </div>
+    </div>
+</div>
+
+
+
+@*@using EscuelaNegociosSergio.Models
+@model Department
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3>@Model.DepartmentName</h3>
+            <table class="table table-stripped">
+                <tr>
+                    <th>ID</th>
+                    <td><input asp-for="@Model.DepartmentId" /></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input asp-for="@Model.Email" /></td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td><input asp-for="@Model.Phone" /></td>
+                </tr>
+                <tr>
+                    <th>Location</th>
+                    <td><input asp-for="@Model.OfficeLocation" /></td>
+                </tr>
+            </table>
+            <div class="text-center">
+                <input type="submit" value="Save" asp-controller="Department" asp-action="UpdateDepartment" />
+            </div>
+
+            <a asp-controller="Club" asp-action="AllClub">Back to Clubs</a>
+        </div>
+    </div>
+</div>*@

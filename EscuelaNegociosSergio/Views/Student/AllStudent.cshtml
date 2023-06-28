@@ -1,0 +1,49 @@
+﻿@using EscuelaNegociosSergio.Models
+@model IEnumerable<Student>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 offset-md-3">
+            <p>
+                <a asp-controller="Student" asp-action="AddStudent" class="btn btn-dark">Add Student</a>
+            </p>
+            @{
+                if (Model.Count() < 1)
+                {
+                    <h6 class="text-danger">No students in the database yet!</h6>
+                }
+                else
+                {
+                    <h3>All Students</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (var student in Model)
+                                {
+                                    <tr>
+                                        <td>@student.StudentId</td>
+                                        <td>@student.StudentName</td>
+                                        <td>
+                                            <a asp-action="EditStudent" asp-route-id="@student.StudentId" class="btn btn-warning btn-sm">Edit</a>
+                                        </td>
+                                        <td>
+                                            <a asp-action="DeleteStudent" asp-route-id="@student.StudentId" class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                }
+            }
+        </div>
+    </div>
+</div>

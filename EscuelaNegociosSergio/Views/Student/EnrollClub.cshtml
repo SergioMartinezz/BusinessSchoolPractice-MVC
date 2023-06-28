@@ -1,0 +1,47 @@
+﻿@using EscuelaNegociosSergio.ViewModels
+@model StudentEnrollmentViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3>Club Information</h3>
+            <table class="table table-striped">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Students</th>
+                </tr>
+                <tr>
+                    <td>@ViewBag.Club.ClubId</td>
+                    <td>@ViewBag.Club.ClubName</td>
+                    <td>@ViewBag.Club.StudentsNumber</td>
+                </tr>
+            </table>
+            @{
+                if (ViewBag.Club.StudentsNumber < 1)
+                {
+                    <p>This Club is close, sorry!</p>
+                    <p><a asp-controller="Club" asp-action="AllClub">Back to Clubs</a></p>
+                }
+                else
+                {
+                    <form asp-controller="Student" asp-action="EnrollClub" method="post">
+                        <div class="form-group text-center">
+                            <br/>
+                            <label asp-for="Enrollment.Student.StudentName">Select the Student to inscribe</label><br/><br>
+                            <select asp-for="Enrollment.Student.StudentId" asp-items="@Model.StudentList" class="form-control-sm"></select>
+                            <input asp-for="Enrollment.Club.ClubId" type="hidden" value="@ViewBag.Club.ClubId" />
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="text-center">
+                                <a asp-controller="Club" asp-action="AllClub" class="btn btn-secondary">Back to Clubs</a>
+                                <button type="submit" class="btn btn-success">Inscribe Club</button>
+                            </div>
+                        </div>
+                    </form>
+                }
+            }
+        </div>
+    </div>
+</div>
